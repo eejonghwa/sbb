@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <ul>
+        <a href="/question/list">HOME</a>
+        <a href="#">LOGIN</a>
+    </ul>
+</div>
+<h5>질문등록</h5>
+<div>
+    <form th:action="@{/question/create}" th:object="${questionForm}" method="post">
+        <div th:replace="~{form_errors :: formErrorsFragment}"></div>
+        <div>
+            <label>제목</label>
+            <input type="text" name="subject" th:field="*{subject}" id="subject">
+        </div>
+        <div>
+            <label>내용</label>
+            <textarea name="content" id="content" th:field="*{content}" rows="10"></textarea>
+        </div>
+        <input type="submit" value="저장하기">
+    </form>
+</div>
+<div></div>
+</body>
+</html>
